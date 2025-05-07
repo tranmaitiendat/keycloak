@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "cf2fe435-6b49-4a80-b1a5-01053f417386",
+		"name": "Keycloak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6368589"
+	},
+	"item": [
+		{
+			"name": "Access Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "public-client",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "email openid",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "milan@test.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/mjtech/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"mjtech",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "public-client",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMTNkMTZjNi1jOTY4LTRmY2ItODRhMS0wMTMzODFiZmY0MmEifQ.eyJleHAiOjE3MjIyNjg1MjMsImlhdCI6MTcyMjI2NjcyMywianRpIjoiNjdlNTk2N2QtMjQzMi00NWY3LTgxZDEtYjAyMTNmODk1NTVjIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9tanRlY2giLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVhbG1zL21qdGVjaCIsInN1YiI6ImY3MWFkOGEyLTJmYzItNGZjMy05Njk0LTdlYmM1MWFmYmQxZiIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJwdWJsaWMtY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjczN2NiZDJhLWZhZDQtNDMzOS04OWUyLTUxNDYzNjY4ODQ4MCIsInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiI3MzdjYmQyYS1mYWQ0LTQzMzktODllMi01MTQ2MzY2ODg0ODAifQ.PESvKFfai4InM1HvhMRh2wuLbaCtriQc5ic9ijYpsql6nf5gzManrBPGbdzPsLgY3ds6RMvzDmxPLfFghVR5-Q",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/mjtech/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"mjtech",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access Token Confidential",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "confidential-client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "BDMAHZWxCn5j7jjvceDuhap6aqGHlJ7s",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/mjtech/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"mjtech",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJtVEgwOE43dHpUSXJtNF9WMi1uQUxsN2ZZeVM5VHR6TDBlVk9EMXptWjJnIn0.eyJleHAiOjE3MTQ1MTQ3NTgsImlhdCI6MTcxNDUxMjk1OCwianRpIjoiMWYwY2RhNjEtMDQzNy00OGI0LThjM2YtMzkzYTEzY2RlYjQyIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDoxODA4MC9yZWFsbXMvZXZlbnRseSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJiMGVhNGViYS0xM2YyLTQwMDctYjk0YS05MDFjNmNlOGUzNWYiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJldmVudGx5LXB1YmxpYy1jbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiODI0YThhNzUtNzZlOC00M2NlLThkYzktNTNjOTc1NGZiMmM2IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLWV2ZW50bHkiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiI4MjRhOGE3NS03NmU4LTQzY2UtOGRjOS01M2M5NzU0ZmIyYzYiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6IkZpcnN0IExhc3QiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJtaWxhbkB0ZXN0LmNvbSIsImdpdmVuX25hbWUiOiJGaXJzdCIsImZhbWlseV9uYW1lIjoiTGFzdCIsImVtYWlsIjoibWlsYW5AdGVzdC5jb20ifQ.fCSd05QpdYED87RZPMvmFBgAZw08Hq80EvjiuF-a73dy558tXceslAxbZqp_fTKDNwKxsiZFrjSA3Os8oFc812iM9BoHoxX4krQjT6cBE3oh9d6gGHzzsTT24JsdnPSaaqgwqRh5CfoeI6zfrstP6H9JCwdjQDCBZ_4_iYmNqesW73uwbX2GmIrTJeD9pPvmNd4-HguLTlG2oVYSJW-Wv-OuTXb-qr2_CDkD4SDwbYf5Gs4Zk23DQhEx4Y0ZL7ib0_5n9VrazUE26Ytvf29z4mDwYdshdNCDIlMgqm682VgvA6i5xhAbzcjvHfa1CFtKzPPe76uObm5UYh9TMYRfAQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
